@@ -1,0 +1,207 @@
+/* Auth Page Specific Style */
+.auth-section {
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--bg-secondary);
+}
+
+.auth-container {
+    background: var(--bg-primary);
+    width: 100%;
+    max-width: 500px;
+    padding: var(--spacing-xl);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.auth-title {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.error-msg {
+    min-height: 18px;
+    margin-top: 6px;
+    color: var(--accent-color);
+    font-size: 0.82rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.error-msg.show {
+    opacity: 1;
+}
+
+.password-strength {
+    margin-top: 10px;
+}
+
+.password-strength-track {
+    width: 100%;
+    height: 6px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+}
+
+.password-strength-bar {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--text-secondary);
+    transition: width var(--transition-fast), background var(--transition-fast);
+}
+
+.password-strength[data-strength="weak"] .password-strength-bar {
+    width: 33%;
+    background: var(--accent-color);
+}
+
+.password-strength[data-strength="medium"] .password-strength-bar {
+    width: 66%;
+    background: #b7791f;
+}
+
+.password-strength[data-strength="strong"] .password-strength-bar {
+    width: 100%;
+    background: #16a34a;
+}
+
+.password-strength-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 7px;
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    line-height: 1.35;
+}
+
+#passwordStrengthLabel {
+    flex: 0 0 auto;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+#passwordStrengthHint {
+    text-align: right;
+}
+
+@media (max-width: 520px) {
+    .password-strength-meta {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    #passwordStrengthHint {
+        text-align: left;
+    }
+}
+
+.form-divider {
+    text-align: center;
+    position: relative;
+    margin: var(--spacing-md) 0;
+}
+
+.form-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--border-color);
+    z-index: 1;
+}
+
+.form-divider span {
+    position: relative;
+    z-index: 2;
+    background: var(--bg-primary);
+    padding: 0 10px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background var(--transition-fast);
+    color: var(--text-primary);
+    border-radius: 8px;
+}
+
+.btn-social:hover {
+    background: var(--bg-secondary);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.auth-link {
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: underline;
+}
