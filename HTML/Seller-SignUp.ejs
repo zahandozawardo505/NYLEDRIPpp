@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYLEDRIP | Become a Seller</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+     <link rel="stylesheet" href="/CSS/style-base.css?v=5">
+    <link rel="stylesheet" href="/CSS/style-sellersignup.css?v=3">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="container">
+        <!-- Left: Collection Menu -->
+        <div class="navbar-menu" id="navbarMenu">
+            <a href="/shop" class="nav-link">Shop</a>
+            <a href="/shop?view=reels" class="nav-link">Reels</a>
+            <a href="/seller-signup" class="nav-link">Sell</a>
+        </div>
+        
+        <!-- Center: Brand Logo -->
+        <div class="navbar-brand">
+            <a href="/" class="logo navbar-text-logo">NYLEDRIP</a>
+        </div>
+
+        <!-- Right: Actions & Account -->
+        <div class="navbar-actions">
+            <div class="navbar-search-wrapper">
+                <input id="globalSearch" class="navbar-search-input" placeholder="Search...">
+                <div id="searchSuggestions" class="search-suggestions" style="display:none;"></div>
+            </div>
+            
+            <a href="/wishlist" class="cart-icon-btn" aria-label="Wishlist">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="cart-nav-badge" id="wishlistNavBadge" style="display:none">0</span>
+            </a>
+            
+            <a href="/cart" class="cart-icon-btn" aria-label="Cart">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="cart-nav-badge" id="cartNavBadge" style="display:none">0</span>
+            </a>
+            
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+            
+            <div id="navbarAuth" class="navbar-auth-wrap">
+                <a href="/login" class="nav-link-auth">Login</a>
+            </div>
+            
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+    <!-- Seller Signup Section -->
+    <section class="seller-signup-section">
+        <div class="container">
+            <div class="seller-form-wrapper">
+                <div class="seller-form-container">
+                    <h1>Turn Your Brand into a Movement</h1>
+                    <p class="subtitle">Join NYLEDRIP and reach customers who are hungry for authentic Egyptian fashion</p>
+
+                    <form class="seller-form" id="sellerForm">
+                        <!-- Step 1: Brand Info -->
+                        <div class="form-step active" id="step1">
+                            <h2 class="step-title">Tell us about your brand</h2>
+
+                            <div class="form-group">
+                                <label for="brandName">Brand Name *</label>
+                                <input 
+                                    type="text" 
+                                    id="brandName" 
+                                    name="brandName" 
+                                    placeholder="Your awesome brand"
+                                    required
+                                >
+                                <span class="error-message" id="brandNameError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="brandDescription">Brand Description *</label>
+                                <textarea 
+                                    id="brandDescription" 
+                                    name="brandDescription" 
+                                    placeholder="What makes your brand unique? What's your story?"
+                                    rows="4"
+                                    required
+                                ></textarea>
+                                <span class="error-message" id="brandDescriptionError"></span>
+                            </div>
+
+
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="ownerName">Owner Name *</label>
+                                    <input 
+                                        type="text" 
+                                        id="ownerName" 
+                                        name="ownerName" 
+                                        placeholder="Your full name"
+                                        required
+                                    >
+                                    <span class="error-message" id="ownerNameError"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ownerPhone">Phone Number *</label>
+                                    <input 
+                                        type="tel" 
+                                        id="ownerPhone" 
+                                        name="ownerPhone" 
+                                       
+                                        required
+                                    >
+                                    <span class="error-message" id="ownerPhoneError"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Contact & Documents -->
+                        <div class="form-step" id="step2">
+                            <h2 class="step-title">Contact & Documentation</h2>
+
+                            <div class="form-group">
+                                <label for="sellerEmail">Email Address *</label>
+                                <input 
+                                    type="email" 
+                                    id="sellerEmail" 
+                                    name="email" 
+                                    placeholder="your@email.com"
+                                    required
+                                >
+                                <span class="error-message" id="sellerEmailError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="businessLicense">Business License/ID *</label>
+                                <div class="file-input-wrapper">
+                                    <input 
+                                        type="file" 
+                                        id="businessLicense" 
+                                        name="businessLicense"
+                                        accept="image/*,.pdf"
+                                        required
+                                    >
+                                    <span class="file-label" id="businessLicenseLabel">Upload your business license or national ID</span>
+                                </div>
+                                <span class="error-message" id="businessLicenseError"></span>
+                                <div id="licensePreviewContainer" style="display:none; margin-top: 15px; text-align: center; border: 1px solid var(--border-color); border-radius: 16px; padding: 16px; background: var(--bg-secondary); transition: all 0.3s ease;">
+                                    <p style="font-weight: 700; margin-bottom: 12px; font-size: 13px; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.5px;">Document Preview</p>
+                                    <div id="licensePreviewContent" style="display: flex; justify-content: center; align-items: center; min-height: 100px;"></div>
+                                    <button type="button" id="removeLicenseBtn" class="btn btn-secondary btn-small" style="margin-top: 12px; width: auto; display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; font-size: 12px; font-weight: 700; border-radius: 8px;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                        Remove Document
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bankAccount">Bank Account Number *</label>
+                                <input 
+                                    type="text" 
+                                    id="bankAccount" 
+                                    name="bankAccount" 
+                                    placeholder="Your bank account for payments"
+                                    required
+                                >
+                                <span class="error-message" id="bankAccountError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sellerPassword">Password *</label>
+                                <input
+                                    type="password"
+                                    id="sellerPassword"
+                                    name="sellerPassword"
+                                    placeholder="At least 8 characters"
+                                    required
+                                >
+                                <span class="error-message" id="sellerPasswordError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmSellerPassword">Confirm Password *</label>
+                                <input
+                                    type="password"
+                                    id="confirmSellerPassword"
+                                    name="confirmSellerPassword"
+                                    placeholder="Repeat your password"
+                                    required
+                                >
+                                <span class="error-message" id="confirmSellerPasswordError"></span>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Verification -->
+                        <div class="form-step" id="step3">
+                            <h2 class="step-title">Almost done!</h2>
+
+                            <div class="checkbox-container">
+                                <div class="checkbox-card" data-checkbox-card="termsCheck">
+                                    <input type="checkbox" id="termsCheck" name="termsCheck" required>
+                                    <label for="termsCheck">I agree to the <a href="#" class="auth-link">Seller Terms & Conditions</a> and understand my account will be verified</label>
+                                </div>
+
+                                <div class="checkbox-card" data-checkbox-card="authenticityCheck">
+                                    <input type="checkbox" id="authenticityCheck" name="authenticityCheck" required>
+                                    <label for="authenticityCheck">I confirm that all information provided is accurate and my brand products are authentic</label>
+                                </div>
+                            </div>
+
+                            <div class="verification-info">
+                                <h4>What happens next?</h4>
+                                <ul>
+                                    <li>We review your application (24-48 hours)</li>
+                                    <li>You'll receive an email confirmation</li>
+                                    <li>Access your seller dashboard</li>
+                                    <li>Start adding products immediately</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Form Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">Previous</button>
+                            <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                            <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Submit Application</button>
+                        </div>
+
+                        <!-- Step Indicator -->
+                        <div class="step-indicator">
+                            <div class="step-dot active" data-step="1">1</div>
+                            <div class="step-line"></div>
+                            <div class="step-dot" data-step="2">2</div>
+                            <div class="step-line"></div>
+                            <div class="step-dot" data-step="3">3</div>
+                        </div>
+                    </form>
+                </div>
+
+                <aside class="seller-benefits" aria-label="Seller benefits">
+                    <h3>Why Sell on NYLEDRIP?</h3>
+                    <p class="benefits-lead">Built for local fashion brands that want growth, control, and clear performance visibility.</p>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">Data</span>
+                        <h4>Real Analytics</h4>
+                        <p>Monitor sales, product views, and customer feedback in one place.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">EGP</span>
+                        <h4>Better Margins</h4>
+                        <p>Keep up to 95% of revenue with transparent platform fees.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">Target</span>
+                        <h4>Targeted Audience</h4>
+                        <p>Reach shoppers already searching for authentic Egyptian brands.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">Mobile</span>
+                        <h4>Easy Management</h4>
+                        <p>Manage products, stock, and orders from one seller dashboard.</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+<script src="/JS/store.js?v=4"></script>
+<script src="/JS/db.js?v=4"></script>
+<script src="/JS/api.js?v=4"></script>
+<script src="/JS/utils.js?v=4"></script>
+<script src="/JS/theme.js?v=4"></script>
+<script src="/JS/main.js?v=4"></script>
+
+<script src="/JS/seller-signup.js?v=4"></script>
+
+</body>
+</html>
+
+
