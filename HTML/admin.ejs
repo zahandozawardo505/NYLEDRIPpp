@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYLEDRIP | Admin Panel</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/CSS/style-base.css?v=6">
+    <link rel="stylesheet" href="/CSS/style-dashboard-admin.css?v=6">
+</head>
+<body class="admin-body">
+<nav class="navbar">
+    <div class="container">
+        <!-- Left: Collection Menu -->
+        <div class="navbar-menu" id="navbarMenu">
+            <a href="/shop" class="nav-link">Shop</a>
+            <a href="/shop?view=reels" class="nav-link">Reels</a>
+            <a href="/seller-signup" class="nav-link">Sell</a>
+        </div>
+        
+        <!-- Center: Brand Logo -->
+        <div class="navbar-brand">
+            <a href="/" class="logo navbar-text-logo">NYLEDRIP</a>
+        </div>
+
+        <!-- Right: Actions & Account -->
+        <div class="navbar-actions">
+            <div class="navbar-search-wrapper">
+                <input id="globalSearch" class="navbar-search-input" placeholder="Search...">
+                <div id="searchSuggestions" class="search-suggestions" style="display:none;"></div>
+            </div>
+            
+            <a href="/wishlist" class="cart-icon-btn" aria-label="Wishlist">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="cart-nav-badge" id="wishlistNavBadge" style="display:none">0</span>
+            </a>
+            
+            <a href="/cart" class="cart-icon-btn" aria-label="Cart">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="cart-nav-badge" id="cartNavBadge" style="display:none">0</span>
+            </a>
+            
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+            
+            <div id="navbarAuth" class="navbar-auth-wrap">
+                <a href="/login" class="nav-link-auth">Login</a>
+            </div>
+            
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+<section class="admin-section"><div class="container admin-container">
+    <aside class="admin-sidebar"><div class="admin-header"><h3>Admin Panel</h3></div><nav class="admin-nav"><a href="#dashboard" class="admin-link active" data-tab="dashboard">Dashboard</a><a href="#users" class="admin-link" data-tab="users">Users</a><a href="#sellers" class="admin-link" data-tab="sellers">Sellers</a><a href="#applications" class="admin-link" data-tab="applications">Applications</a><a href="#reviews" class="admin-link" data-tab="reviews">Reviews</a><a href="#payouts" class="admin-link" data-tab="payouts">Payouts</a><a href="#audit" class="admin-link" data-tab="audit">Audit</a><a href="#settings" class="admin-link" data-tab="settings">Settings</a><a href="#reports" class="admin-link" data-tab="reports">Reports</a></nav></aside>
+    <div class="admin-content">
+        <div class="admin-tab active" id="dashboard"><h2>Dashboard Overview</h2><div class="admin-stats" id="adminStats"></div></div>
+        <div class="admin-tab" id="users"><h2>User Management</h2><div class="admin-controls"><input type="text" id="adminUserSearch" class="search-input" placeholder="Search users..."><button class="btn btn-secondary" id="exportUsersBtn">Export Users CSV</button><div style="display:flex;gap:10px;margin-left:auto;"><input type="email" id="promoteAdminEmail" class="search-input" placeholder="User email to promote..."><button class="btn btn-primary" id="promoteAdminBtn">Promote to Admin</button></div></div><div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>User ID</th><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminUsersTbody"></tbody></table></div><div id="adminUsersPager"></div></div>
+        <div class="admin-tab" id="sellers"><h2>Seller Management</h2><div class="admin-controls"><input type="text" id="adminSellerSearch" class="search-input" placeholder="Search sellers..."><button class="btn btn-secondary" id="exportSellersBtn">Export Sellers CSV</button></div><div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Seller ID</th><th>Name</th><th>Email</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminSellersTbody"></tbody></table></div><div id="adminSellersPager"></div></div>
+        <div class="admin-tab" id="applications"><h2>Seller Applications</h2><div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Brand</th><th>Owner</th><th>Email</th><th>Phone</th><th>Status</th><th>Applied</th><th>Actions</th></tr></thead><tbody id="adminApplicationsTbody"></tbody></table></div><div id="adminApplicationsPager"></div></div>
+        <div class="admin-tab" id="reviews"><h2>Review Moderation</h2><div class="admin-controls"><select id="adminReviewStatus" class="search-input"><option value="">All statuses</option><option value="visible">Visible</option><option value="reported">Reported</option><option value="hidden">Hidden</option></select><button class="btn btn-secondary" id="exportReviewsBtn">Export Reviews CSV</button></div><div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Product</th><th>Customer</th><th>Rating</th><th>Comment</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminReviewsTbody"></tbody></table></div><div id="adminReviewsPager"></div></div>
+        <div class="admin-tab" id="payouts"><h2>Payouts</h2><div class="admin-controls"><select id="payoutSellerSelect" class="search-input"></select><input id="payoutAmountInput" class="search-input" type="number" placeholder="Gross amount"><button class="btn btn-primary" id="createPayoutBtn">Create Payout</button></div><div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Seller</th><th>Gross</th><th>Commission</th><th>Payout</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminPayoutsTbody"></tbody></table></div></div>
+        <div class="admin-tab" id="audit"><h2>Audit Log</h2><div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Date</th><th>Actor</th><th>Action</th><th>Entity</th><th>Message</th></tr></thead><tbody id="adminAuditTbody"></tbody></table></div></div>
+        <div class="admin-tab" id="settings"><h2>Platform Settings</h2><div class="reports-grid"><div class="report-card"><h3>Commerce</h3><div class="form-group"><label>Commission Rate %</label><input id="settingCommission" class="search-input" type="number" min="0" max="50"></div><div class="form-group"><label>Payout Hold Days</label><input id="settingPayoutHold" class="search-input" type="number" min="0"></div><div class="form-group"><label>Free Shipping Threshold</label><input id="settingFreeShipping" class="search-input" type="number" min="0"></div><div class="form-group"><label>Support Email</label><input id="settingSupportEmail" class="search-input" type="email"></div><button class="btn btn-primary" id="saveSettingsBtn">Save Settings</button></div><div class="report-card"><h3>Hero Background (Homepage)</h3><div class="form-group"><label>Upload Media</label><input id="settingHeroMedia" class="search-input" type="file" accept="image/jpeg,image/png,image/webp,video/mp4,video/webm"></div><div class="hero-media-preview" id="heroMediaPreview"><span>No hero media uploaded.</span></div><p class="secondary-text" id="heroMediaStatus">Upload JPG, PNG, WEBP, MP4, or WEBM.</p><div class="hero-media-actions"><button type="button" class="btn btn-primary" id="uploadHeroMediaBtn">Upload Hero Media</button><button type="button" class="btn btn-secondary" id="resetHeroMediaBtn">Use Default Background</button></div></div></div></div>
+        <div class="admin-tab" id="reports"><h2>Platform Reports</h2><div class="reports-grid"><div class="report-card"><h3>Orders Report</h3><p class="report-text">All orders with totals and statuses.</p><button class="btn btn-secondary" id="exportOrdersBtn">Download Orders CSV</button></div><div class="report-card"><h3>Products Report</h3><p class="report-text">All products with seller mapping.</p><button class="btn btn-secondary" id="exportProductsBtn">Download Products CSV</button></div></div></div>
+    </div>
+</div></section>
+
+<div id="adminAppModal" class="admin-modal" style="display:none;" aria-hidden="true">
+    <div class="admin-modal-backdrop" id="adminAppModalBackdrop"></div>
+    <div class="admin-modal-content">
+        <div class="admin-modal-header">
+            <h3>Seller Application Details</h3>
+            <button class="admin-modal-close" id="adminAppModalCloseBtn" type="button">&times;</button>
+        </div>
+        <div class="admin-modal-body" id="adminAppModalBody">
+            <!-- Filled dynamically via JS -->
+        </div>
+        <div class="admin-modal-footer">
+            <button class="btn btn-secondary" id="exportAppTxtBtn" type="button">Export as TXT</button>
+            <button class="btn btn-primary" id="exportAppDocBtn" type="button">Export as Word</button>
+        </div>
+    </div>
+</div>
+<script src="/JS/store.js?v=6"></script>
+<script src="/JS/db.js?v=6"></script>
+<script src="/JS/api.js?v=6"></script>
+<script src="/JS/utils.js?v=6"></script>
+<script src="/JS/theme.js?v=6"></script>
+<script src="/JS/main.js?v=6"></script>
+
+<script src="/JS/dashboard.js?v=6"></script>
+</body>
+</html>
