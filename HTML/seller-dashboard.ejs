@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYLEDRIP | Seller Dashboard</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/CSS/style-base.css?v=5">
+    <link rel="stylesheet" href="/CSS/style-dashboard-admin.css?v=3">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <!-- Left: Collection Menu -->
+        <div class="navbar-menu" id="navbarMenu">
+            <a href="/shop" class="nav-link">Shop</a>
+            <a href="/shop?view=reels" class="nav-link">Reels</a>
+            <a href="/seller-signup" class="nav-link">Sell</a>
+        </div>
+        
+        <!-- Center: Brand Logo -->
+        <div class="navbar-brand">
+            <a href="/" class="logo navbar-text-logo">NYLEDRIP</a>
+        </div>
+
+        <!-- Right: Actions & Account -->
+        <div class="navbar-actions">
+            <div class="navbar-search-wrapper">
+                <input id="globalSearch" class="navbar-search-input" placeholder="Search...">
+                <div id="searchSuggestions" class="search-suggestions" style="display:none;"></div>
+            </div>
+            
+            <a href="/wishlist" class="cart-icon-btn" aria-label="Wishlist">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span class="cart-nav-badge" id="wishlistNavBadge" style="display:none">0</span>
+            </a>
+            
+            <a href="/cart" class="cart-icon-btn" aria-label="Cart">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="cart-nav-badge" id="cartNavBadge" style="display:none">0</span>
+            </a>
+            
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+            
+            <div id="navbarAuth" class="navbar-auth-wrap">
+                <a href="/login" class="nav-link-auth">Login</a>
+            </div>
+            
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<section class="dashboard-section">
+    <div class="container">
+        <aside class="dashboard-sidebar">
+            <div class="seller-profile">
+                <div class="seller-avatar" id="sellerAvatar">S</div>
+                <h3 id="sellerNavName">Seller</h3>
+                <p class="seller-status">Seller Account</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#products-tab" class="sidebar-link active" data-tab="products-tab">My Products</a>
+                <a href="#add-product-tab" class="sidebar-link" data-tab="add-product-tab">Add / Edit Product</a>
+                <a href="#orders-tab" class="sidebar-link" data-tab="orders-tab">Orders</a>
+                <a href="#analytics-tab" class="sidebar-link" data-tab="analytics-tab">Analytics</a>
+                <a href="#payouts-tab" class="sidebar-link" data-tab="payouts-tab">Payouts</a>
+                <a href="#reels-tab" class="sidebar-link" data-tab="reels-tab">Reels</a>
+                <a href="#promos-tab" class="sidebar-link" data-tab="promos-tab">Promos</a>
+                <a href="#settings-tab" class="sidebar-link" data-tab="settings-tab">Settings</a>
+            </nav>
+        </aside>
+
+        <div class="dashboard-content">
+            <div class="dashboard-tab active" id="products-tab"><h2>My Products</h2><div class="products-list"></div><div id="sellerProductsPager" style="display:flex;gap:10px;align-items:center;justify-content:center;margin:12px 0;"></div><h3>Inventory Alerts</h3><div id="inventoryAlerts"></div></div>
+
+            <div class="dashboard-tab" id="add-product-tab">
+                <h2>Add / Edit Product</h2>
+                <form id="addProductForm" class="product-form">
+                    <h3 id="productFormHeader" style="margin-bottom:12px;">Product Details</h3>
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input id="productName" placeholder="e.g. Oversized Hoodie" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productDescription">Description</label>
+                        <textarea id="productDescription" placeholder="Short product description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productGender">Gender</label>
+                        <select id="productGender" required><option value="">Select gender</option><option>Men</option><option>Women</option><option>Unisex</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="productCategory">Category</label>
+                        <select id="productCategory" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="productSubcategory">Subcategory</label>
+                        <select id="productSubcategory" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Product Images (View 1 / View 2 / View 3)</label>
+                        <input id="productImageUrl1" placeholder="View 1 image URL (required for best display)">
+                        <input id="productImageUrl2" placeholder="View 2 image URL (optional)" style="margin-top:8px;">
+                        <input id="productImageUrl3" placeholder="View 3 image URL (optional)" style="margin-top:8px;">
+                        <small class="secondary-text">You can use URLs, upload files, or both.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Product Images (max 2MB each)</label>
+                        <input id="productImageFile1" type="file" accept="image/jpeg,image/png,image/webp">
+                        <input id="productImageFile2" type="file" accept="image/jpeg,image/png,image/webp" style="margin-top:8px;">
+                        <input id="productImageFile3" type="file" accept="image/jpeg,image/png,image/webp" style="margin-top:8px;">
+                        <div id="productImagePreviewGrid" class="image-preview-grid" aria-live="polite"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productPrice">Price</label>
+                            <input id="productPrice" type="number" placeholder="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productCost">Cost</label>
+                            <input id="productCost" type="number" placeholder="0" required>
+                        </div>
+                    </div>
+
+                    <hr style="margin:18px 0;">
+
+                    <h3 style="margin-bottom:12px;">Variant (Color + Size + Stock)</h3>
+                    <div id="colorSelectionWrapper">
+                        <div class="form-group">
+                            <label for="variantColorName">Color Name</label>
+                            <input id="variantColorName" placeholder="e.g. Black">
+                        </div>
+                        <div class="form-group">
+                            <label>Pick Color</label>
+                            <div id="presetColorList" class="preset-color-list">
+                                <button type="button" class="preset-color-btn" data-name="Black" data-hex="#000000">
+                                    <span class="color-swatch" style="background-color: #000000; border: 1px solid rgba(255,255,255,0.25);"></span>
+                                    Black
+                                </button>
+                                <button type="button" class="preset-color-btn" data-name="White" data-hex="#FFFFFF">
+                                    <span class="color-swatch" style="background-color: #FFFFFF; border: 1px solid rgba(0,0,0,0.15);"></span>
+                                    White
+                                </button>
+                                <button type="button" class="preset-color-btn" data-name="Navy" data-hex="#1E3A8A">
+                                    <span class="color-swatch" style="background-color: #1E3A8A;"></span>
+                                    Navy
+                                </button>
+                                <button type="button" class="preset-color-btn" data-name="Gray" data-hex="#6B7280">
+                                    <span class="color-swatch" style="background-color: #6B7280;"></span>
+                                    Gray
+                                </button>
+                                <button type="button" class="preset-color-btn" data-name="Beige" data-hex="#D6C7A1">
+                                    <span class="color-swatch" style="background-color: #D6C7A1;"></span>
+                                    Beige
+                                </button>
+                                <button type="button" class="preset-color-btn" data-name="Brown" data-hex="#7C4A2D">
+                                    <span class="color-swatch" style="background-color: #7C4A2D;"></span>
+                                    Brown
+                                </button>
+                                <button type="button" class="preset-color-btn" data-name="Red" data-hex="#DC2626">
+                                    <span class="color-swatch" style="background-color: #DC2626;"></span>
+                                    Red
+                                </button>
+                                <button type="button" class="preset-color-btn" data-name="Green" data-hex="#15803D">
+                                    <span class="color-swatch" style="background-color: #15803D;"></span>
+                                    Green
+                                </button>
+                                <button type="button" class="preset-color-btn" id="customColorBtn" data-name="Custom Color" data-hex="#8B5CF6">
+                                    <input type="color" id="customColorPicker" value="#8B5CF6" style="width:18px;height:18px;border:none;border-radius:50%;padding:0;background:none;cursor:pointer;outline:none;vertical-align:middle;margin-right:2px;">
+                                    Other
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <input id="variantColorHex" type="hidden" value="#000000">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Size</label>
+                            <input id="variantSize" type="hidden">
+                            <div id="presetSizeList" class="preset-size-list">
+                                <button type="button" class="preset-size-btn" data-size="XS">XS</button>
+                                <button type="button" class="preset-size-btn" data-size="S">S</button>
+                                <button type="button" class="preset-size-btn" data-size="M">M</button>
+                                <button type="button" class="preset-size-btn" data-size="L">L</button>
+                                <button type="button" class="preset-size-btn" data-size="XL">XL</button>
+                                <button type="button" class="preset-size-btn" data-size="XXL">XXL</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="variantStock">Stock</label>
+                            <input id="variantStock" type="number" placeholder="0">
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-secondary" id="addVariantBtn">Add Variant</button>
+                    <div id="variantFeedback" style="margin:12px 0 18px;"></div>
+                    <div style="display:flex;gap:12px;margin-top:12px;align-items:center;">
+                        <button class="btn btn-primary" type="submit">Save Product</button>
+                        <button type="button" class="btn btn-secondary" id="cancelEditBtn" style="display:none;">Cancel Edit</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="dashboard-tab" id="orders-tab">
+                <h2>Manage Orders</h2>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Customer</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Update Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sellerOrdersRows"></tbody>
+                </table>
+                <div id="sellerOrdersPager" style="display:flex;gap:10px;align-items:center;justify-content:center;margin-top:12px;"></div>
+            </div>
+
+            <div class="dashboard-tab" id="analytics-tab"><h2>Analytics</h2><div class="analytics-grid" id="analyticsCards"></div>
+                <h3>Best-Selling Products</h3><table class="orders-table"><thead><tr><th>Rank</th><th>Product</th><th>Qty</th><th>Revenue</th><th>Profit</th></tr></thead><tbody id="bestSelling"></tbody></table>
+                <h3>Product Performance</h3><table class="orders-table"><thead><tr><th>Name</th><th>ID</th><th>Color</th><th>Size</th><th>Qty</th><th>Unit</th><th>Revenue</th><th>Cost</th><th>Profit</th></tr></thead><tbody id="perfRows"></tbody></table>
+                <h3>Recent Orders</h3><table class="orders-table"><thead><tr><th>Order ID</th><th>Product</th><th>Customer</th><th>Qty</th><th>Total</th><th>Status</th><th>Date</th></tr></thead><tbody id="recentOrdersRows"></tbody></table>
+                <button class="btn btn-primary" id="exportSalesBtn">Export Sales Report</button>
+            </div>
+
+            <div class="dashboard-tab" id="payouts-tab"><h2>Payout Summary</h2><div class="analytics-grid" id="sellerPayoutCards"></div><p class="secondary-text">Payout values use platform commission settings on newly created orders.</p></div>
+
+            <div class="dashboard-tab" id="reels-tab"><h2>Reels Showcase</h2>
+                <form id="sellerReelsForm" class="product-form">
+                    <p class="secondary-text" style="margin-bottom:10px;">Add Instagram/TikTok reels and link each one to a product.</p>
+                    <div id="reelsTotals" class="analytics-grid" style="margin-bottom:14px;"></div>
+                    <div id="sellerReelsList" class="seller-reels-list"></div>
+                    <div class="seller-reels-controls">
+                        <button type="button" class="btn btn-secondary" id="addSellerReelBtn">Add Reel</button>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Save Reels</button>
+                </form>
+                <div class="product-form" style="margin-top:14px;">
+                    <h3 style="margin-bottom:12px;">Reel Performance</h3>
+                    <button class="btn btn-secondary" id="exportReelsBtn" type="button" style="margin-bottom:10px;">Export Reels CSV</button>
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Product</th>
+                                <th>Views</th>
+                                <th>Clicks</th>
+                                <th>CTR</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reelsAnalyticsRows"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="dashboard-tab" id="promos-tab"><h2>Promo Codes</h2>
+                <form id="sellerPromosForm" class="product-form">
+                    <p class="secondary-text" style="margin-bottom:10px;">Create and manage promo codes for your products. Static promo codes are disabled.</p>
+                    <div id="sellerPromosList" class="seller-promos-list"></div>
+                    <div class="seller-reels-controls">
+                        <button type="button" class="btn btn-secondary" id="addSellerPromoBtn">Add Promo Code</button>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Save Promo Codes</button>
+                </form>
+            </div>
+
+            <div class="dashboard-tab" id="settings-tab"><h2>Settings</h2>
+                <form id="settingsForm" class="product-form">
+                    <h3 style="margin-bottom:12px;">Brand Identity</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sellerLogoFile">Seller Logo</label>
+                            <input id="sellerLogoFile" type="file" accept="image/*">
+                            <small class="secondary-text">Upload JPG/PNG. It will be used on your seller page and products.</small>
+                            <button type="button" id="saveLogoBtn" class="btn btn-primary" style="margin-top:10px;">Save Logo</button>
+                        </div>
+                        <div class="form-group">
+                            <label>Logo Preview</label>
+                            <div class="logo-preview-wrap">
+                                <img id="sellerLogoPreview" alt="Seller logo preview" />
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin:16px 0;">
+                    <h3 style="margin-bottom:12px;">Social Links</h3>
+                    <div class="form-row"><div class="form-group"><input id="socialInstagram" placeholder="Instagram URL"></div><div class="form-group"><input id="socialFacebook" placeholder="Facebook URL"></div></div>
+                    <div class="form-row"><div class="form-group"><input id="socialTiktok" placeholder="TikTok URL"></div><div class="form-group"><input id="socialWebsite" placeholder="Website URL"></div></div>
+                    <button class="btn btn-primary" type="submit">Save Settings</button>
+                </form>
+                <form id="passwordForm" class="product-form" style="margin-top:14px;">
+                    <div class="form-group"><input id="currentPassword" type="password" placeholder="Current password"></div>
+                    <div class="form-group"><input id="newPassword" type="password" placeholder="New password"></div>
+                    <div class="form-group"><input id="confirmNewPassword" type="password" placeholder="Confirm new password"></div>
+                    <button class="btn btn-secondary" type="submit">Change Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="/JS/store.js?v=4"></script>
+<script src="/JS/db.js?v=4"></script>
+<script src="/JS/api.js?v=4"></script>
+<script src="/JS/utils.js?v=4"></script>
+<script src="/JS/theme.js?v=4"></script>
+<script src="/JS/main.js?v=4"></script>
+
+<script src="/JS/dashboard-seller.js?v=5"></script>
+
+</body>
+</html>
+
+
