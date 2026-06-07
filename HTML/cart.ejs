@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - NYLEDRIP</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/CSS/style-base.css?v=5">
+    <link rel="stylesheet" href="/CSS/style-cart.css?v=4">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-menu" id="navbarMenu">
+                <a href="/shop" class="nav-link">Shop</a>
+                <a href="/shop?view=reels" class="nav-link">Reels</a>
+                <a href="/seller-signup" class="nav-link">Sell</a>
+            </div>
+            <div class="navbar-brand">
+                <a href="/" class="logo navbar-text-logo">NYLEDRIP</a>
+            </div>
+            <div class="navbar-actions">
+                <div class="navbar-search-wrapper">
+                    <input id="globalSearch" placeholder="SEARCH...">
+                    <div id="searchSuggestions" class="search-suggestions" style="display:none;"></div>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <a href="/wishlist" class="cart-icon-btn" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span class="cart-nav-badge" id="wishlistNavBadge" style="display:none">0</span>
+                </a>
+                <a href="/cart" class="cart-icon-btn" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-nav-badge" id="cartNavBadge" style="display:none">0</span>
+                </a>
+                <div id="navbarAuth">
+                    <a href="/login" class="nav-link-auth">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="cart-header">
+        <div class="container">
+            <h1>YOUR BAG</h1>
+        </div>
+    </header>
+
+    <section class="cart-section">
+        <div class="container cart-layout">
+            <div class="cart-items" id="cartItems">
+                <!-- JS Inject -->
+            </div>
+            
+            <aside class="cart-summary" id="cartSummary">
+                <h2>SUMMARY</h2>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotalAmount">0 EGP</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="shippingAmount">0 EGP</span>
+                </div>
+                
+                <div class="summary-divider"></div>
+                
+                <div class="promo-row">
+                    <input type="text" id="promoInput" class="promo-input" placeholder="Promo Code">
+                    <button type="button" class="btn btn-secondary" id="applyPromoBtn">Apply</button>
+                </div>
+                <div class="summary-row discount-row" id="discountRow" style="display:none;color:var(--primary-color);">
+                    <span>Discount</span>
+                    <span id="discountAmount">0 EGP</span>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="totalAmount">0 EGP</span>
+                </div>
+
+                <button class="btn btn-primary btn-block" id="checkoutBtn">PROCEED TO CHECKOUT</button>
+            </aside>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="/" class="footer-logo">NYLEDRIP</a>
+                    <p>Supporting local Egyptian fashion brands with direct-to-brand shopping, curated drops, and no middleman.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NYLEDRIP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/JS/store.js?v=4"></script>
+<script src="/JS/db.js?v=4"></script>
+<script src="/JS/api.js?v=4"></script>
+<script src="/JS/utils.js?v=4"></script>
+<script src="/JS/theme.js?v=4"></script>
+<script src="/JS/main.js?v=4"></script>
+
+<script src="/JS/cart.js?v=5"></script>
+
+</body>
+</html>
+
+
