@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NileDrip">
+  <rect width="64" height="64" rx="16" fill="#020617"/>
+  <path d="M18 45V18h7l14 17V18h7v27h-7L25 28v17h-7Z" fill="#f8fafc"/>
+  <path d="M18 49h28" stroke="#ff3366" stroke-width="5" stroke-linecap="round"/>
+  <path d="M46 49c0 5-3 8-7 8" stroke="#22d3ee" stroke-width="5" stroke-linecap="round"/>
+</svg>

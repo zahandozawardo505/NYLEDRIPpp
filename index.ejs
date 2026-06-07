@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYLEDRIP - Local Brands, Maximum Drip</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/CSS/style-base.css">
+    <link rel="stylesheet" href="/CSS/style-main.css?v=3">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-menu" id="navbarMenu">
+                <a href="/shop" class="nav-link">Shop</a>
+                <a href="/shop?view=reels" class="nav-link">Reels</a>
+                <a href="/seller-signup" class="nav-link">Sell</a>
+            </div>
+
+            <div class="navbar-brand">
+                <a href="/" class="logo navbar-text-logo">NYLEDRIP</a>
+            </div>
+
+            <div class="navbar-actions">
+                <div class="navbar-search-wrapper">
+                    <input id="globalSearch" placeholder="SEARCH...">
+                    <div id="searchSuggestions" class="search-suggestions" style="display:none;"></div>
+                </div>
+
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+
+                <a href="/wishlist" class="cart-icon-btn" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                        </path>
+                    </svg>
+                    <span class="cart-nav-badge" id="wishlistNavBadge" style="display:none">0</span>
+                </a>
+
+                <a href="/cart" class="cart-icon-btn" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-nav-badge" id="cartNavBadge" style="display:none">0</span>
+                </a>
+
+                <div id="navbarAuth">
+                    <a href="/login" class="nav-link-auth">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="heroSection">
+        <div id="heroMediaContainer">
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source
+                    src="https://assets.mixkit.co/videos/preview/mixkit-skater-performing-a-trick-in-the-street-44243-large.mp4"
+                    type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Elevate Your<br>Streetwear</h1>
+            <p class="hero-subtitle">Curated collections from independent creators.</p>
+            <div class="hero-cta">
+                <a href="shop" class="btn btn-primary">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee-wrapper">
+        <div class="marquee">
+            <span>✦ FREE SHIPPING OVER 1500 EGP ✦ EXCLUSIVE DROPS ✦ INDEPENDENT CREATORS ✦ WORLDWIDE DELIVERY ✦ FREE
+                SHIPPING OVER 1500 EGP ✦ EXCLUSIVE DROPS ✦ INDEPENDENT CREATORS ✦ WORLDWIDE DELIVERY ✦</span>
+        </div>
+    </div>
+
+    <section class="categories">
+        <div class="container">
+            <div class="categories-grid">
+                <a href="shop?category=hoodies" class="category-card category-hoodies"><span>Hoodies</span></a>
+                <a href="shop?category=tops" class="category-card category-tops"><span>Tops</span></a>
+                <a href="shop?category=bottoms" class="category-card category-bottoms"><span>Bottoms</span></a>
+                <a href="shop?category=jackets" class="category-card category-jackets"><span>Jackets</span></a>
+                <a href="shop?category=shoes" class="category-card category-shoes"><span>Shoes</span></a>
+                <a href="shop?category=accessories"
+                    class="category-card category-accessories"><span>Accessories</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">New Arrivals</h2>
+            <div class="products-grid" id="featuredGrid">
+                <!-- JS Inject -->
+            </div>
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="shop" class="btn btn-secondary">View All</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="seller-cta" id="seller">
+        <div class="container">
+            <h2>Start Your Brand</h2>
+            <p>Sell directly to customers with zero middlemen. Join Egypt's first premium streetwear launchpad.</p>
+            <a href="seller-signup" class="btn btn-primary">Become a Seller</a>
+        </div>
+    </section>
+
+    <div id="newsletterModal" class="modal-overlay"
+        style="display:none; align-items:center; justify-content:center; z-index:99999;">
+        <div class="modal-content"
+            style="max-width: 500px; width: 90%; background: var(--bg-primary); padding:50px 40px; border-radius:12px; position:relative; text-align:center;">
+            <button class="modal-close" id="closeNewsletterBtn"
+                style="position:absolute; top:15px; right:15px; z-index:10;">&times;</button>
+            <h2 style="font-size:2.5rem; font-weight:900; text-transform:uppercase; margin-bottom:10px;">Join The Club
+            </h2>
+            <p style="color:var(--text-secondary); margin-bottom:30px;">Get 10% off your first drop. No spam, just heat.
+            </p>
+            <form id="newsletterForm" style="display:flex; flex-direction:column; gap:15px;">
+                <input type="email" placeholder="ENTER YOUR EMAIL" required
+                    style="width:100%; padding:15px; border:2px solid var(--border-color); background:transparent; color:var(--text-primary); border-radius:8px; font-weight:600;">
+                <button type="submit" class="btn btn-primary" style="padding:15px; font-size:1.1rem; width:100%;">Unlock
+                    10% Off</button>
+            </form>
+        </div>
+    </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="/" class="footer-logo">NYLEDRIP</a>
+                    <p>Supporting local Egyptian fashion brands with direct-to-brand shopping, curated drops, and no
+                        middleman.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop">Shop</a></li>
+                        <li><a href="seller-signup">Become a Seller</a></li>
+                        <li><a href="login">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact-list">
+                        <li><a href="mailto:hello@niledrip.com">NYLEDRIP@gamil.com</a></li>
+                        <li>Cairo, Egypt</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NYLEDRIP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/JS/store.js?v=6"></script>
+    <script src="/JS/db.js?v=6"></script>
+    <script src="/JS/api.js?v=6"></script>
+    <script src="/JS/utils.js?v=6"></script>
+    <script src="/JS/theme.js?v=6"></script>
+    <script src="/JS/main.js?v=6"></script>
+
+
+</body>
+
+</html>
