@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: NileDrip API
+  version: 1.0.0
+servers:
+  - url: /api
+paths:
+  /auth/login:
+    post:
+      summary: Login with email and password
+      responses:
+        "200": { description: Auth token and user }
+  /auth/google:
+    get:
+      summary: Start Google OAuth
+      responses:
+        "302": { description: Redirect to Google }
+  /auth/verify-email:
+    get:
+      summary: Verify email with token
+      responses:
+        "302": { description: Redirect to login }
+  /products:
+    get:
+      summary: List products with search, filters, and sorting
+      responses:
+        "200": { description: Product list }
+  /orders:
+    get:
+      summary: List orders for current role
+      responses:
+        "200": { description: Order list }
+    post:
+      summary: Create order
+      responses:
+        "201": { description: Created order }
+  /orders/{id}/tracking:
+    get:
+      summary: Get order tracking timeline
+      responses:
+        "200": { description: Tracking timeline }
+  /admin/audit-logs:
+    get:
+      summary: List admin audit logs
+      responses:
+        "200": { description: Audit log list }
+  /admin/payouts:
+    get:
+      summary: List payouts
+      responses:
+        "200": { description: Payout list }
+    post:
+      summary: Create payout record
+      responses:
+        "201": { description: Payout created }

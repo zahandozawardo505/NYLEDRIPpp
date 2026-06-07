@@ -1,0 +1,25 @@
+{
+  "name": "nyledripriv",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node backend/server.js",
+    "build": "node scripts/prepare-vercel-public.js && node -e \"const fs=require('fs'); ['index.ejs','api/index.js','backend/server.js','public/CSS','public/JS','public/assets'].forEach((file)=>fs.accessSync(file)); console.log('NYLEDRIP EJS frontend, public assets, and API entry verified.');\"",
+    "start": "node backend/server.js",
+    "preview": "node backend/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-validator": "^7.3.2",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.1",
+    "multer": "^2.0.2",
+    "puppeteer": "^25.1.0"
+  }
+}
