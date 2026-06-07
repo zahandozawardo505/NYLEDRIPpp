@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYLEDRIP | Page Not Found</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/CSS/style-base.css">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            margin: 0;
+            line-height: 1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        .error-msg {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('index.ejs') %>
+    <script>
+        // Use the index layout but replace the main content with our 404 block
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContainer = document.querySelector('main') || document.body;
+            // Clear default main content (like shop/hero) and inject 404
+            mainContainer.innerHTML = `
+                <div class="error-container">
+                    <h1 class="error-code">404</h1>
+                    <h2 class="error-title">Page Not Found</h2>
+                    <p class="error-msg">The page you're looking for doesn't exist or has been moved. Let's get you back to shopping.</p>
+                    <a href="/shop" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">Return to Shop</a>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
+.

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - NYLEDRIP</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/CSS/style-base.css?v=5">
+    <link rel="stylesheet" href="/CSS/style-cart.css?v=3">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-menu" id="navbarMenu">
+                <a href="/shop" class="nav-link">Shop</a>
+                <a href="/shop?view=reels" class="nav-link">Reels</a>
+                <a href="/seller-signup" class="nav-link">Sell</a>
+            </div>
+            <div class="navbar-brand">
+                <a href="/" class="logo navbar-text-logo">NYLEDRIP</a>
+            </div>
+            <div class="navbar-actions">
+                <div class="navbar-search-wrapper">
+                    <input id="globalSearch" placeholder="SEARCH...">
+                    <div id="searchSuggestions" class="search-suggestions" style="display:none;"></div>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <a href="/wishlist" class="cart-icon-btn" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span class="cart-nav-badge" id="wishlistNavBadge" style="display:none">0</span>
+                </a>
+                <a href="/cart" class="cart-icon-btn" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-nav-badge" id="cartNavBadge" style="display:none">0</span>
+                </a>
+                <div id="navbarAuth">
+                    <a href="/login" class="nav-link-auth">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="cart-header">
+        <div class="container">
+            <h1>CHECKOUT</h1>
+        </div>
+    </header>
+
+    <section class="cart-section" style="padding-top: 20px;">
+        <div class="container cart-layout">
+            <div class="checkout-forms" style="flex: 2; padding-right: 20px;">
+                <form id="checkoutForm">
+                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                        <h2 style="margin-bottom: 15px;">Shipping Details</h2>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label for="checkoutSavedAddress" style="display:block; margin-bottom: 5px;">Saved Addresses</label>
+                            <select id="checkoutSavedAddress" class="full-width" style="padding: 10px; width: 100%; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px;">
+                                <option value="">Enter a new address</option>
+                            </select>
+                        </div>
+                        <div class="checkout-form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <input type="text" id="checkoutFullName" placeholder="Full Name" required style="padding: 10px; width: 100%; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary);">
+                            <input type="email" id="checkoutEmail" placeholder="Email Address" required style="padding: 10px; width: 100%; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary);">
+                            <input type="text" id="checkoutPhone" placeholder="Phone Number" required style="padding: 10px; width: 100%; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary);">
+                            <input type="text" id="checkoutCity" placeholder="City" required style="padding: 10px; width: 100%; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary);">
+                            <input type="text" id="checkoutAddress" class="full-width" placeholder="Street Address" required style="grid-column: 1 / -1; padding: 10px; width: 100%; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary);">
+                            <textarea id="cartNote" placeholder="Order Note (Optional)" style="grid-column: 1 / -1; padding: 10px; width: 100%; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary); resize: vertical; min-height: 60px;"></textarea>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 8px;">
+                        <h2 style="margin-bottom: 15px;">Payment Method</h2>
+                        <select id="checkoutPaymentMethod" style="padding: 10px; width: 100%; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px;">
+                            <option value="cash_on_delivery">Cash on Delivery</option>
+                            <option value="card" disabled>Credit/Debit Card (Coming Soon)</option>
+                        </select>
+                    </div>
+
+                    <div id="checkoutError" style="color: red; margin: 20px 0; display: none;"></div>
+                    <button type="submit" class="btn btn-primary btn-block" id="confirmOrderBtn" style="margin-top: 20px;">PLACE ORDER</button>
+                </form>
+            </div>
+            
+            <aside class="cart-summary" id="checkoutSummaryContainer" style="flex: 1;">
+                <h2>ORDER SUMMARY</h2>
+                <div class="cart-items" id="checkoutItemsList" style="margin-bottom: 20px; max-height: 300px; overflow-y: auto;">
+                    <!-- JS Inject -->
+                </div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong id="modalSubtotal">0 EGP</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <strong id="modalShipping">0 EGP</strong>
+                </div>
+                
+                <div class="summary-divider"></div>
+                
+                <div class="promo-row">
+                    <input type="text" id="promoInput" class="promo-input" placeholder="Promo Code">
+                    <button type="button" class="btn btn-secondary" id="applyPromoBtn">Apply</button>
+                </div>
+                <div class="summary-row discount-row" id="modalDiscountRow" style="display:none;color:var(--primary-color);">
+                    <span>Discount</span>
+                    <strong id="modalDiscount">0 EGP</strong>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="total-row" style="font-size: 1.2rem;">
+                    <span>Total</span>
+                    <strong id="modalTotal">0 EGP</strong>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content" style="text-align: center; padding: 60px;">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" style="margin-bottom:20px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <h2>ORDER CONFIRMED</h2>
+            <p style="margin: 20px 0; color: var(--text-secondary);">Your order ID is <strong id="successOrderId"></strong></p>
+            <a href="/profile" class="btn btn-secondary">Track Order</a>
+        </div>
+    </div>
+
+    <footer class="footer" style="margin-top: 50px;">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="/" class="footer-logo">NYLEDRIP</a>
+                    <p>Supporting local Egyptian fashion brands with direct-to-brand shopping, curated drops, and no middleman.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NYLEDRIP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/JS/store.js?v=4"></script>
+<script src="/JS/db.js?v=4"></script>
+<script src="/JS/api.js?v=4"></script>
+<script src="/JS/utils.js?v=4"></script>
+<script src="/JS/theme.js?v=4"></script>
+<script src="/JS/main.js?v=4"></script>
+
+<script src="/JS/checkout.js?v=4"></script>
+
+</body>
+</html>
